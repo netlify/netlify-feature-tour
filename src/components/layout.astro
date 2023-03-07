@@ -6,40 +6,38 @@ const { title, description, home = false } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="preload" href="/fonts/PacaembuVar-subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/MulishVar-subset.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    rel="apple-touch-icon"
-    sizes="180x180"
-    href="/apple-touch-icon.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/favicon-32x32.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="/favicon-16x16.png"
-  />
+  
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#139cab" />
+
   <meta name="msapplication-TileColor" content="#5cebdf" />
   <meta name="theme-color" content="#ffffff" />
   <title>{title}</title>
 
-  <style global>
+  <link rel="stylesheet" href="/global.css">
+  <style is:global>
+
     :root {
-      --heading: #181A1C;
-      --text: #353A3E;
-      --text-muted: #545A61;
-      --primary: #32E6E2;
-      --button: #014847;
-      --lightBorder: #CDE2FF;
-      --light: #EDF4FF;
-      --white: #fff;
+    
+      --heading: var(--neutral-dark-900);
+      --text: var(--neutral-dark-900);
+      --text-muted: var(--neutral-dark-600);
+      --primary: var(--blue-700);
+      --primary-darker: var(--blue-800);
+      --highlight: var(--teal-300);
+      --button:var(--neutral-light-000);
+      --lightBorder: var(--neutral-light-200);
+      --light: var(--neutral-light-100);
+      --white: var(--neutral-light-000);
+      --card-radius: var(--border-radius-3);
+      --font-primary: Pacaembu, sans-serif;
+      --font-secondary: Mulish, sans-serif;
+
     }
 
     * {
@@ -48,9 +46,9 @@ const { title, description, home = false } = Astro.props;
 
     html,
     body {
+
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      font-family: var(--font-secondary);
       font-size: 18px;
       line-height: 1.45;
       margin: 0;
@@ -65,14 +63,29 @@ const { title, description, home = false } = Astro.props;
       padding: 5rem 0 4rem;
     }
 
+    h1, h2, h3 {
+      font-family: var(--font-primary);
+    }
+
+    a:link,
+    a:visited {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: var(--text);
+      font-weight: 600;
+    }
+    a:hover,
+    a:focus {
+      text-decoration-color: var(--highlight);
+    }
+
     main {
       background: var(--light);
-      border-bottom: 1px solid var(--lightBorder);
-      border-top: 1px solid var(--lightBorder);
       margin-bottom: 2rem;
       margin-top: 3rem;
       padding: 2rem max(5vw, 50vw - 60ch / 2);
       width: 100vw;
+      border-style: none;
     }
 
     .sr-only:not(:focus):not(:active) {
@@ -85,9 +98,29 @@ const { title, description, home = false } = Astro.props;
       width: 1px;
     }
 
-  </style>
+    .button,
+    a.button {
+      background: var(--primary);
+      border-radius: 4px;
+      color: var(--white);
+      display: inline-block;
+      font-weight: 800;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      width: max-content;
+      transition-duration: .2s;
+      text-decoration: none;
+      margin-top: auto;
+    }
 
-  <style>
+    a.button:hover,
+    a.button:focus,
+    .button:hover,
+    .button:focus {
+      background: var(--primary-darker);
+    }
+
+
     .container,
     .footer {
       margin: 0 auto;

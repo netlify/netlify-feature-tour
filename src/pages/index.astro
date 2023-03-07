@@ -5,14 +5,12 @@ import Layout from '../components/layout.astro';
 <style>
 .steps {
   background: var(--light);
-  border-bottom: 1px solid var(--lightBorder);
-  border-top: 1px solid var(--lightBorder);
   display: grid;
   gap: 2rem;
   grid-template-columns: min(90vw, 250px);
   justify-content: center;
   margin-top: 3rem;
-  padding: 2rem 5vw;
+  padding: 5rem 5vw;
   width: 100vw;
 }
 
@@ -31,12 +29,13 @@ import Layout from '../components/layout.astro';
 .step {
   background: var(--white);
   border: 1px solid var(--lightBorder);
-  border-radius: 4px;
+  border-radius: var(--card-radius);
   display: flex;
   flex-direction: column;
   font-size: 0.75rem;
   padding: 1rem 1.5rem 1.5rem;
   text-align: left;
+  box-shadow: 0 2px 4px rgb(14 30 37 / 12%);
 }
 
 .stepHeading {
@@ -45,17 +44,7 @@ import Layout from '../components/layout.astro';
   margin: 0;
 }
 
-.button {
-  background: var(--primary);
-  border-radius: 4px;
-  color: var(--button);
-  display: inline-block;
-  font-weight: 600;
-  margin-top: auto;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  width: max-content;
-}
+
 </style>
 
 <Layout
