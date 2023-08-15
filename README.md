@@ -30,10 +30,10 @@ You can clone this example repo to explore its features and implementation and t
 ```shell
 
 # 1. Clone the repository to your local development environment
-git clone git@github.com:netlify/feature-tour.git
+git clone git@github.com:netlify/netlify-feature-tour.git
 
 # 2. Move into the project directory
-cd feature-tour
+cd netlify-feature-tour
 
 # 3. Install code dependencies
 npm install
